@@ -1,11 +1,11 @@
 <template>
-    <div class="home body">
-        <Promo :blogs="blogs"/>
-        <PlanBook/>
-        <SeeExperience/>
-        <MyTrips/>
-        <Connect/>
-    </div>
+  <div class="home body">
+    <Promo :blogs="blogs"/>
+    <PlanBook/>
+    <SeeExperience/>
+    <MyTrips/>
+    <Connect/>
+  </div>
 </template>
 
 <script> 
@@ -14,16 +14,15 @@ import PlanBook from './PlanBook'
 import SeeExperience from './SeeExperience'
 import MyTrips from './MyTrips'
 import Connect from './Connect'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'home',
-   data() {
-        this.$store.dispatch('loadBlogsList');
-          return {
-              allBlogs: '' 
-          }
-        },
+  data () {
+    return {
+      allBlogs: '' 
+    }
+  },
   components: {
     Promo,
     PlanBook,
@@ -31,11 +30,15 @@ export default {
     MyTrips,
     Connect
   },
-   computed: {
-        ...mapGetters({
-            blogs: 'blogs'
-        })
-      },
+  computed: {
+    ...mapGetters('blogs', ['blogs'])
+  },
+  created () {
+    this.loadBlogsList()
+  },
+  methods: {
+    ...mapActions('blogs', ['loadBlogsList'])
+  }
 }
 </script>
 
