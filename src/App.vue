@@ -14,20 +14,23 @@ import Footer from './components/Footer.vue'
 export default {
   name: 'app',
   data() {
-        // this.$store.dispatch('loadBlogsList');
-        //     return {
-        //         allBlogs: '' 
-        //     }
-        },
+	// this.$store.dispatch('loadBlogsList');
+	//     return {
+	//         allBlogs: '' 
+	//     }
+		return {
+
+		}
+	},
   components: {
     Header,
     Footer,
   },
   computed: {
-            // ...mapGetters({
-            //     blogs: 'blogs/blogs'
-            // })
-        }, 
+			// ...mapGetters({
+			//     blogs: 'blogs/blogs'
+			// })
+	}, 
 }
 </script>
 
